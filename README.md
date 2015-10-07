@@ -1,9 +1,15 @@
 # automator-type-clipboard-contents
 Mac Automator service to type out the contents of the clipboard as keystrokes.
 
-Made this for a weird situation where normal paste was disabled.
+I made this for a weird situation where normal paste was disabled.
 
-Install by double-clicking the `.workflow` folder in Finder, then add a keyboard shortcut for it under:
+## Installation
+
+    git clone https://github.com/treythomas123/automator-type-clipboard-contents
+    cd automator-type-clipboard-contents
+    open type-clipboard-contents.workflow
+
+Then add a keyboard shortcut for it under:
 
     System Preferences > Keyboard > Shortcuts tab > Services > General
 
