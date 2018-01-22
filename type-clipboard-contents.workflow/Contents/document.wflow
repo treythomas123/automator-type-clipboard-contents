@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>409.2</string>
+	<string>428</string>
 	<key>AMApplicationVersion</key>
-	<string>2.5</string>
+	<string>2.7</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -54,7 +54,7 @@
 				<key>CFBundleVersion</key>
 				<string>1.2.1</string>
 				<key>CanShowSelectedItemsWhenRun</key>
-				<true/>
+				<false/>
 				<key>CanShowWhenRun</key>
 				<true/>
 				<key>Category</key>
@@ -77,8 +77,6 @@
 				</array>
 				<key>arguments</key>
 				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -96,7 +94,7 @@
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>1.0.2</string>
+				<string>1.0</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Automator</string>
@@ -116,18 +114,25 @@
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<string>/System/Library/Automator/Run JavaScript.action</string>
 				<key>ActionName</key>
-				<string>Run AppleScript</string>
+				<string>Run JavaScript</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	tell application "System Events" to keystroke inputend run</string>
+					<string>function run(input, parameters) {  var systemEvents = Application("System Events");
+  input[0].split('').forEach( function(char) { 
+    if (char === '\n') {
+      systemEvents.keyCode(36);
+	} else {
+	  systemEvents.keystroke(char);
+	}
+  });}</string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
+				<string>com.apple.Automator.RunJavaScript</string>
 				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
+				<string>1.0</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -137,17 +142,18 @@
 					<string>AMCategoryUtilities</string>
 				</array>
 				<key>Class Name</key>
-				<string>RunScriptAction</string>
+				<string>RunJavaScriptAction</string>
 				<key>InputUUID</key>
-				<string>D3884223-1CFF-43A6-B8A5-B47C9B7443FF</string>
+				<string>70029250-7CE5-490E-8280-EEFDF93BEDB1</string>
 				<key>Keywords</key>
 				<array>
 					<string>Run</string>
+					<string>JavaScript</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>14E4F948-C7A6-4D46-A2E8-CDBF99B900BF</string>
+				<string>649F676D-3BFA-4E4E-BFAB-C3C3ACB3B701</string>
 				<key>UUID</key>
-				<string>33F4AB2D-B035-44B8-9B37-E26AA596B78C</string>
+				<string>FE0818FF-144D-48C1-A14C-AA0B1455EB4D</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -157,12 +163,12 @@
 					<key>0</key>
 					<dict>
 						<key>default value</key>
-						<string>on run {input, parameters}
+						<string>function run(input, parameters) {
 	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
+	// Your script goes here
+
+	return input;
+}</string>
 						<key>name</key>
 						<string>source</string>
 						<key>required</key>
@@ -178,9 +184,9 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.000000:382.000000</string>
+				<string>424.500000:742.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run JavaScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -188,12 +194,12 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>44F59752-2D3E-4691-9F70-38C1B52D49CA</key>
+		<key>831E7A04-BDDA-409F-A363-E35E738EADBE</key>
 		<dict>
 			<key>from</key>
 			<string>CBF21B25-51FD-41EC-B06F-0FE31A271A49 - CBF21B25-51FD-41EC-B06F-0FE31A271A49</string>
 			<key>to</key>
-			<string>33F4AB2D-B035-44B8-9B37-E26AA596B78C - 33F4AB2D-B035-44B8-9B37-E26AA596B78C</string>
+			<string>FE0818FF-144D-48C1-A14C-AA0B1455EB4D - FE0818FF-144D-48C1-A14C-AA0B1455EB4D</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
